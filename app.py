@@ -31,7 +31,8 @@ def get_databases(conn):
     try:
         cursor = conn.cursor()
         cursor.execute("SHOW DATABASES")
-        return [row[1] for row in cursor.fetchall()]
+        dbs = [row[1] for row in cursor.fetchall()]
+        return dbs
     except Exception as e:
         print(f"Error getting databases: {str(e)}")
         return []
