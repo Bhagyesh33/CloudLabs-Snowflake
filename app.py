@@ -1567,10 +1567,11 @@ if __name__ == "__main__":
     try:
         from google.colab import output
         output.enable_custom_widget_manager()
-        app.launch(share=True, inbrowser=True)
+        app.launch(server_name="0.0.0.0", server_port=7860,share=False, prevent_thread_lock=True)
     except:
         # Fallback for non-Colab environments
-        app.launch(debug=True, share=True)
+        app.launch(server_name="0.0.0.0", server_port=7860,share=False, prevent_thread_lock=True)
+        # app.launch(debug=True, share=True)
 # # Launch the app
 # if __name__ == "__main__":
 #     try:
