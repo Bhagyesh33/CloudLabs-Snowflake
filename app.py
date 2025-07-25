@@ -1562,13 +1562,21 @@ with gr.Blocks(title="DeploySure Suite", theme=gr.themes.Soft()) as app:
         outputs=[tc_download, tc_download]
     )
 
-
 # Launch the app
 if __name__ == "__main__":
     try:
         from google.colab import output
         output.enable_custom_widget_manager()
-        app.launch(server_name="0.0.0.0", server_port=7860,share=False, prevent_thread_lock=True)
+        app.launch(share=True, inbrowser=True)
     except:
         # Fallback for non-Colab environments
-        app.launch(server_name="0.0.0.0", server_port=7860,share=False, prevent_thread_lock=True)
+        app.launch(debug=True, share=True)
+# # Launch the app
+# if __name__ == "__main__":
+#     try:
+#         from google.colab import output
+#         output.enable_custom_widget_manager()
+#         app.launch(server_name="0.0.0.0", server_port=7860,share=False, prevent_thread_lock=True)
+#     except:
+#         # Fallback for non-Colab environments
+#         app.launch(server_name="0.0.0.0", server_port=7860,share=False, prevent_thread_lock=True)
