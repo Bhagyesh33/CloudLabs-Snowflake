@@ -31,8 +31,7 @@ def get_databases(conn):
     try:
         cursor = conn.cursor()
         cursor.execute("SHOW DATABASES")
-        dbs = [row[1] for row in cursor.fetchall()]
-        return dbs
+        return [row[1] for row in cursor.fetchall()]
     except Exception as e:
         print(f"Error getting databases: {str(e)}")
         return []
@@ -1562,6 +1561,7 @@ with gr.Blocks(title="DeploySure Suite", theme=gr.themes.Soft()) as app:
         inputs=[tc_output, test_case_data, tc_test_cases],
         outputs=[tc_download, tc_download]
     )
+
 
 # Launch the app
 if __name__ == "__main__":
